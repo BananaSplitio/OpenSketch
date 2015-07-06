@@ -3,7 +3,7 @@
 //  OpenSketch
 //
 //  Created by Andrew on 2015-07-06.
-//  Copyright © 2015 Cashew Studio. All rights reserved.
+//  Copyright © 2015 BananaSplit. All rights reserved.
 //
 
 import UIKit
