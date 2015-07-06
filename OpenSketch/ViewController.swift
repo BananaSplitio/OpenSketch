@@ -66,6 +66,7 @@ class ViewController: UIViewController {
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
         swiped = true
         if let touch = touches.first as UITouch! {
             let currentPoint = touch.locationInView(view)
@@ -75,4 +76,25 @@ class ViewController: UIViewController {
         }
     }
     
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if !swiped {
+            // draw a single point
+            drawLineFrom(lastPoint, toPoint: lastPoint)
+        }
+        
+        // Merge tempImageView into mainImageView
+        UIGraphicsBeginImageContext(baseImageView.frame.size)
+        baseImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: kCGBlendModeNormal, alpha: 1.0)
+        tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: kCGBlendModeNormal, alpha: opacity)
+        baseImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        tempImageView.image = nil
+    }
+    
+    @IBAction func resetCanvas(sender: AnyObject) {
+        baseImageView.image = nil
+    }
+    
+
 }
