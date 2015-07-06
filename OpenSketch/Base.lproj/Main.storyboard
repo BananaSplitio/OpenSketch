@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="15A204h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -33,6 +34,9 @@
                                     <constraint firstAttribute="width" constant="50" id="Geq-GK-EMb"/>
                                     <constraint firstAttribute="height" constant="50" id="YkZ-mm-Ubu"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="changeColorRed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Qkh-pG-AgS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8m3-l2-Q9J" customClass="BlueButton" customModule="OpenSketch" customModuleProvider="target">
                                 <rect key="frame" x="80" y="20" width="50" height="50"/>
@@ -40,6 +44,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="DWc-br-qgn"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="changeColorBlue:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="OTV-Ir-JBb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ep6-lQ-aEx" customClass="GreenButton" customModule="OpenSketch" customModuleProvider="target">
                                 <rect key="frame" x="20" y="80" width="50" height="50"/>
@@ -47,10 +54,16 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ziy-kG-m0g"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="changeColorGreen:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8pu-n7-HyN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbu-VR-zGX" customClass="YellowButton" customModule="OpenSketch" customModuleProvider="target">
                                 <rect key="frame" x="80" y="80" width="50" height="50"/>
                                 <animations/>
+                                <connections>
+                                    <action selector="changeColorYellow:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Idw-6c-ETq"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Q7-Va-uxf" customClass="PurpleButton" customModule="OpenSketch" customModuleProvider="target">
                                 <rect key="frame" x="20" y="140" width="50" height="50"/>
@@ -59,6 +72,16 @@
                                     <constraint firstAttribute="height" constant="50" id="BkL-Or-873"/>
                                     <constraint firstAttribute="width" constant="50" id="f44-Sp-Nnv"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="changeColorPurple:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="osB-W0-Bty"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zz3-jG-v0f" customClass="OrangeButton" customModule="OpenSketch" customModuleProvider="target">
+                                <rect key="frame" x="80" y="140" width="50" height="50"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="changeColorOrange:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="SCA-NP-7rg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAp-tF-BfM">
                                 <rect key="frame" x="531" y="20" width="49" height="30"/>
@@ -70,10 +93,6 @@
                                 <connections>
                                     <action selector="resetCanvas:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NC6-dr-cI1"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zz3-jG-v0f" customClass="OrangeButton" customModule="OpenSketch" customModuleProvider="target">
-                                <rect key="frame" x="80" y="140" width="50" height="50"/>
-                                <animations/>
                             </button>
                         </subviews>
                         <animations/>

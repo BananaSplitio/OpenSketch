@@ -7,6 +7,9 @@
 //
 import UIKit
 
+
+let colors: [(CGFloat, CGFloat, CGFloat)] = [
+    ]
 class ViewController: UIViewController {
     
     var lastPoint = CGPoint.zeroPoint
@@ -21,6 +24,46 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
+    
+    @IBAction func changeColorRed(sender: AnyObject) {
+        red = 1.0
+        green = 0.0
+        blue = 0.0
+    }
+    
+    @IBAction func changeColorBlue(sender: AnyObject) {
+        red = 0.0
+        green = 0.0
+        blue = 1.0
+    }
+   
+    @IBAction func changeColorGreen(sender: AnyObject) {
+        red = 0.0
+        green = 1.0
+        blue = 0.0
+    }
+    
+    @IBAction func changeColorYellow(sender: AnyObject) {
+        red = 1.0
+        green = 1.0
+        blue = 0.0
+        
+    }
+    
+    @IBAction func changeColorPurple(sender: AnyObject) {
+        red = 0.5
+        green = 0.0
+        blue = 0.5
+    }
+    
+    @IBAction func changeColorOrange(sender: AnyObject) {
+        red = 1.0
+        green = 0.5
+        blue = 0.0
+    }
+
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
