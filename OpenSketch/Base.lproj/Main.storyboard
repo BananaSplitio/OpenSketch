@@ -38,6 +38,10 @@
                             <constraint firstItem="hHU-qF-zUe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qbF-PB-B52"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="baseImageView" destination="cpl-oV-dPK" id="Rl1-HT-UqM"/>
+                        <outlet property="tempImageView" destination="hHU-qF-zUe" id="oy5-Jz-fyD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
