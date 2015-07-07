@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     var red: CGFloat = 0.0
     var green: CGFloat = 0.0
     var blue: CGFloat = 0.0
-    var brushWidth: CGFloat = 10.0
+    var brushWidth: CGFloat = 5.0
     var opacity: CGFloat = 1.0
     var swiped = false
     
@@ -86,25 +86,27 @@ class ViewController: UIViewController {
     
     func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
         
-        // 1
+        
         UIGraphicsBeginImageContext(view.frame.size)
         let context = UIGraphicsGetCurrentContext()
         tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
         
-        // 2
+        
         CGContextMoveToPoint(context, fromPoint.x, fromPoint.y)
         CGContextAddLineToPoint(context, toPoint.x, toPoint.y)
+        CGContextSetAllowsAntialiasing(context, true)
+        CGContextSetShouldAntialias(context, true)
         
-        // 3
+        
         CGContextSetLineCap(context, kCGLineCapRound)
         CGContextSetLineWidth(context, brushWidth)
         CGContextSetRGBStrokeColor(context, red, green, blue, 1.0)
         CGContextSetBlendMode(context, kCGBlendModeNormal)
         
-        // 4
+        
         CGContextStrokePath(context)
         
-        // 5
+        
         tempImageView.image = UIGraphicsGetImageFromCurrentImageContext()
         tempImageView.alpha = opacity
         UIGraphicsEndImageContext()
