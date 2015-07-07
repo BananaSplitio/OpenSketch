@@ -411,6 +411,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.bananasplit.OpenSketch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos9.0;
 			};
 			name = Debug;
 		};
@@ -426,6 +427,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.bananasplit.OpenSketch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos9.0;
 			};
 			name = Release;
 		};
