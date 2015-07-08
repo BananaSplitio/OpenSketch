@@ -122,9 +122,6 @@ class SmoothLineView: UIView {
             self.setNeedsDisplayInRect(drawBox)
             }
         
-        func clear() {
-        }
-        
         }
    
 }

@@ -7,21 +7,18 @@
 //
 
 import UIKit
-import CoreMotion
 
 var smoothLineView : SmoothLineView = SmoothLineView()
 
 class ViewController: UIViewController {
     
-      @IBOutlet weak var mainDrawingCanvas: UIImageView!
+    @IBOutlet weak var mainDrawingCanvas: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         smoothLineView = SmoothLineView(frame: mainDrawingCanvas.bounds)
         self.view.addSubview(smoothLineView)
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,8 +27,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func deleteCurrentCanvas(sender: AnyObject) {
-        self.view.setNeedsDisplay()
-    
+        mainDrawingCanvas.image = nil
     }
    
 }
