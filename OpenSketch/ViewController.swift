@@ -8,17 +8,21 @@
 
 import UIKit
 
-var smoothLineView : SmoothLineView = SmoothLineView()
 
 class ViewController: UIViewController {
     
+    var smoothLineView : SmoothLineView = SmoothLineView()
+
+    
     @IBOutlet weak var mainDrawingCanvas: UIImageView!
+    @IBOutlet weak var deleteCurrentCanvasButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         smoothLineView = SmoothLineView(frame: mainDrawingCanvas.bounds)
         self.view.addSubview(smoothLineView)
+        self.view.bringSubviewToFront(deleteCurrentCanvasButton)
+            
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,7 +31,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func deleteCurrentCanvas(sender: AnyObject) {
-        mainDrawingCanvas.image = nil
+        smoothLineView.path = CGPathCreateMutable()
+        if CGPathIsEmpty(smoothLineView.path) {
+            smoothLineView.backgroundColor = UIColor.whiteColor()
+            smoothLineView.backgroundColor = UIColor.clearColor()
+        }
     }
    
 }

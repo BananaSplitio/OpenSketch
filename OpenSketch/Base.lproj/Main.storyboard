@@ -19,9 +19,7 @@
                                 <animations/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="clearCurrentCanvas:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="OnH-gb-211"/>
-                                    <action selector="delete:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Q7P-eR-Zk7"/>
-                                    <action selector="deleteCurrentCanvas:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ssf-yl-ifb"/>
+                                    <action selector="deleteCurrentCanvas:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="M8O-8E-uSH"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="NBP-82-PH7">
@@ -35,6 +33,7 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="deleteCurrentCanvasButton" destination="Kmr-6J-bAz" id="MT4-YQ-6kj"/>
                         <outlet property="mainDrawingCanvas" destination="NBP-82-PH7" id="KDT-J7-K9J"/>
                     </connections>
                 </viewController>

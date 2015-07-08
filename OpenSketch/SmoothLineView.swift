@@ -64,8 +64,8 @@ class SmoothLineView: UIView {
         CGContextSetLineCap(context, kCGLineCapRound)
         CGContextSetLineWidth(context, self.lineWidth)
         CGContextSetStrokeColorWithColor(context, self.lineColor.CGColor)
-        
         CGContextStrokePath(context)
+        
         
         self.empty = false
     }
@@ -92,7 +92,7 @@ class SmoothLineView: UIView {
             
             if ((dx * dx + dy * dy) < kPointMinDistanceSquared) {
                 // ... then ignore this movement
-                return;
+                return
             }
             
             // update points: previousPrevious -> mid1 -> previous -> mid2 -> current
@@ -123,9 +123,12 @@ class SmoothLineView: UIView {
             }
         
         }
+    func clear() {
+        self.path = CGPathCreateMutable()
+        
    
 }
 
-    
-    
+}
+
     
