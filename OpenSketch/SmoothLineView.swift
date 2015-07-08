@@ -120,15 +120,9 @@ class SmoothLineView: UIView {
             
             CGPathAddPath(path, nil, subpath)
             self.setNeedsDisplayInRect(drawBox)
-            }
-        
         }
-    func clear() {
-        self.path = CGPathCreateMutable()
         
-   
-}
-
+    }
 }
 
     
