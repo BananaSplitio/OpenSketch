@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 
     let defaultColor : UIColor = UIColor.blackColor()
-    let defaultBackgroundColor : UIColor = UIColor.whiteColor()
+    let defaultBackgroundColor : UIColor = UIColor.clearColor()
     let defaultWidth : CGFloat = 5.0
 
     let kPointMinDistance : CGFloat = 5.0
@@ -121,6 +121,9 @@ class SmoothLineView: UIView {
             CGPathAddPath(path, nil, subpath)
             self.setNeedsDisplayInRect(drawBox)
             }
+        
+        func clear() {
+        }
         
         }
    

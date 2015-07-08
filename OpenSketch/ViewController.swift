@@ -9,14 +9,16 @@
 import UIKit
 import CoreMotion
 
+var smoothLineView : SmoothLineView = SmoothLineView()
 
 class ViewController: UIViewController {
- 
+    
+      @IBOutlet weak var mainDrawingCanvas: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let smoothLineView : SmoothLineView = SmoothLineView(frame: self.view.bounds)
+        smoothLineView = SmoothLineView(frame: mainDrawingCanvas.bounds)
         self.view.addSubview(smoothLineView)
         
         
@@ -27,5 +29,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func deleteCurrentCanvas(sender: AnyObject) {
+        self.view.setNeedsDisplay()
     
+    }
+   
 }
