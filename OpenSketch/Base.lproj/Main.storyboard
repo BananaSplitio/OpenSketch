@@ -14,10 +14,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Kmr-6J-bAz">
-                                <rect key="frame" x="958" y="20" width="46" height="30"/>
+                                <rect key="frame" x="947" y="20" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <state key="normal" title="Delete"/>
                                 <connections>
                                     <action selector="deleteCurrentCanvas:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="M8O-8E-uSH"/>
                                 </connections>
