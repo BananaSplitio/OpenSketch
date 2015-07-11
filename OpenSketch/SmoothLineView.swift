@@ -101,7 +101,7 @@ class SmoothLineView: UIView {
             previousPoint = touch.previousLocationInView(self)
             currentPoint = touch.locationInView(self)
             
-            let mid1 : CGPoint = getMidPoint(previousPreviousPoint, p2: previousPreviousPoint)
+            let mid1 : CGPoint = getMidPoint(previousPoint, p2: previousPreviousPoint)
             let mid2 : CGPoint = getMidPoint(currentPoint, p2: previousPoint)
             
             // to represent the finger movement, create a new path segment,
