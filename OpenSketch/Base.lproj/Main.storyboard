@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="15A204h" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="15A216g" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
@@ -28,14 +28,77 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OJW-oI-k0U" customClass="OrangeButton" customModule="OpenSketch" customModuleProvider="target">
+                                <rect key="frame" x="10" y="600" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="orangeColorStroke:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cmR-Af-2xz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VDv-yf-XLh" customClass="YellowButton" customModule="OpenSketch" customModuleProvider="target">
+                                <rect key="frame" x="10" y="655" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="yellowColorStroke:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Nb5-nK-c3E"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iCl-um-FPb" customClass="GreenButton" customModule="OpenSketch" customModuleProvider="target">
+                                <rect key="frame" x="65" y="655" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="greenColorStroke:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Tk1-UB-p8j"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="R27-i5-i1g" customClass="BlueButton" customModule="OpenSketch" customModuleProvider="target">
+                                <rect key="frame" x="10" y="710" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="blueColorStroke:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dvr-Q7-20N"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="c7R-Xa-6IY" customClass="RedButton" customModule="OpenSketch" customModuleProvider="target">
+                                <rect key="frame" x="65" y="710" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="redColorStroke:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6c5-so-lvm"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="20" id="6fY-CL-hZz">
+                                <rect key="frame" x="8" y="554" width="118" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="valueDidChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="M95-dq-5iX"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x1M-zB-bBR" customClass="PurpleButton" customModule="OpenSketch" customModuleProvider="target">
+                                <rect key="frame" x="65" y="600" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="purpleColorButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YXe-ur-8mA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="blueColorButton" destination="R27-i5-i1g" id="qU8-Uk-wuy"/>
                         <outlet property="deleteCurrentCanvasButton" destination="Kmr-6J-bAz" id="MT4-YQ-6kj"/>
+                        <outlet property="greenColorButton" destination="iCl-um-FPb" id="gAH-46-wq0"/>
+                        <outlet property="lineWidthSlider" destination="6fY-CL-hZz" id="crL-FS-HHt"/>
                         <outlet property="mainDrawingCanvas" destination="NBP-82-PH7" id="KDT-J7-K9J"/>
+                        <outlet property="orangeColorButton" destination="OJW-oI-k0U" id="tRB-F6-QZm"/>
+                        <outlet property="purpleColorButton" destination="x1M-zB-bBR" id="kQy-MS-g0O"/>
+                        <outlet property="redColorButton" destination="c7R-Xa-6IY" id="fwt-9o-Lnz"/>
+                        <outlet property="yellowColorButton" destination="VDv-yf-XLh" id="6gB-OS-01H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

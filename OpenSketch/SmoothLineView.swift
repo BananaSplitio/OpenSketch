@@ -55,17 +55,14 @@ class SmoothLineView: UIView {
     
     override func drawRect(rect: CGRect) {
         self.backgroundColor?.set()
-        // clear rect
         UIRectFill(rect)
         
-        // get the graphics context and draw the path
         let context : CGContextRef = UIGraphicsGetCurrentContext()
         CGContextAddPath(context, self.path)
         CGContextSetLineCap(context, kCGLineCapRound)
         CGContextSetLineWidth(context, self.lineWidth)
         CGContextSetStrokeColorWithColor(context, self.lineColor.CGColor)
         CGContextStrokePath(context)
-        
         
         self.empty = false
     }
@@ -121,8 +118,11 @@ class SmoothLineView: UIView {
             CGPathAddPath(path, nil, subpath)
             self.setNeedsDisplayInRect(drawBox)
         }
-        
     }
+    func makeBlue() {
+        self.lineColor = UIColor.blueColor()
+    }
+
 }
 
     
