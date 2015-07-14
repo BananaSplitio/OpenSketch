@@ -11,7 +11,7 @@ import QuartzCore
 
     let defaultColor : UIColor = UIColor.blackColor()
     let defaultBackgroundColor : UIColor = UIColor.clearColor()
-    let defaultWidth : CGFloat = 5.0
+    let defaultWidth : CGFloat = 10.0
 
     let kPointMinDistance : CGFloat = 5.0
     let kPointMinDistanceSquared : CGFloat = 25.0
@@ -62,6 +62,7 @@ class SmoothLineView: UIView {
         CGContextSetLineCap(context, kCGLineCapRound)
         CGContextSetLineWidth(context, self.lineWidth)
         CGContextSetStrokeColorWithColor(context, self.lineColor.CGColor)
+        CGContextSetAlpha(context, 0.7)
         CGContextStrokePath(context)
         
         self.empty = false

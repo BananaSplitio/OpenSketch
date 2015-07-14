@@ -45,6 +45,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func deleteCurrentCanvas(sender: AnyObject) {
+        mainDrawingCanvas.image = nil 
         smoothLineView.path = CGPathCreateMutable()
         if CGPathIsEmpty(smoothLineView.path) {
             smoothLineView.backgroundColor = UIColor.whiteColor()
@@ -53,27 +54,52 @@ class ViewController: UIViewController {
     }
    
     @IBAction func blueColorStroke(sender: AnyObject) {
-        smoothLineView.lineColor = UIColor.blueColor()
+        changeStrokeColor(UIColor.blueColor())
+        
     }
     @IBAction func redColorStroke(sender: AnyObject) {
-        smoothLineView.lineColor = UIColor.redColor()
+        changeStrokeColor(UIColor.redColor())
     }
     @IBAction func greenColorStroke(sender: AnyObject) {
-        smoothLineView.lineColor = UIColor.greenColor()
+        changeStrokeColor(UIColor.greenColor())
     }
     @IBAction func yellowColorStroke(sender: AnyObject) {
-        smoothLineView.lineColor = UIColor.yellowColor()
+        changeStrokeColor(UIColor.yellowColor())
     }
     @IBAction func orangeColorStroke(sender: AnyObject) {
-        smoothLineView.lineColor = UIColor.orangeColor()
+        changeStrokeColor(UIColor.orangeColor())
     }
     @IBAction func purpleColorButton(sender: AnyObject) {
-        smoothLineView.lineColor = UIColor.purpleColor()
+        changeStrokeColor(UIColor.purpleColor())
     }
     @IBAction func valueDidChange(sender: AnyObject) {
         let newValue : Float = sender.value
+        changeStrokeWidth(CGFloat(newValue))
+    }
+    
+    func changeStrokeColor(color: UIColor) {
+    addViewToImageView()
+    smoothLineView.lineColor = color
+    
+    }
+    
+    func changeStrokeWidth(width: CGFloat) {
+        smoothLineView.lineWidth = width
+        addViewToImageView()
+    }
+    
+    func addViewToImageView() {
+        UIGraphicsBeginImageContextWithOptions(mainDrawingCanvas.bounds.size, view.opaque, 0.0)
+        view.drawViewHierarchyInRect(mainDrawingCanvas.bounds, afterScreenUpdates: false)
+        let snapshotImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        mainDrawingCanvas.image = snapshotImage
         smoothLineView.path = CGPathCreateMutable()
-        smoothLineView.lineWidth  = CGFloat(newValue)
+        if CGPathIsEmpty(smoothLineView.path) {
+            smoothLineView.backgroundColor = UIColor.whiteColor()
+            smoothLineView.backgroundColor = UIColor.clearColor()
+        }
+
     }
     
     
