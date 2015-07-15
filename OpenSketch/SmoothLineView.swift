@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 
     let defaultColor : UIColor = UIColor.blackColor()
-    let defaultBackgroundColor : UIColor = UIColor.clearColor()
+    let defaultBackgroundColor : UIColor = UIColor.whiteColor()
     let defaultWidth : CGFloat = 10.0
 
     let kPointMinDistance : CGFloat = 5.0
@@ -19,6 +19,9 @@ import QuartzCore
     var currentPoint: CGPoint = CGPoint()
     var previousPoint : CGPoint = CGPoint()
     var previousPreviousPoint : CGPoint = CGPoint()
+    var imageArray = [UIImage]()
+
+
 
 
 
@@ -49,7 +52,7 @@ class SmoothLineView: UIView {
         self.lineColor = defaultColor
         self.empty = true
         super.init(frame: frame)
-        self.backgroundColor = defaultBackgroundColor
+        self.backgroundColor = UIColor.whiteColor()
 
     }
     
@@ -69,7 +72,8 @@ class SmoothLineView: UIView {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if let touch = touches.first as UITouch! {
+        
+                if let touch = touches.first as UITouch! {
             previousPoint = touch.previousLocationInView(self)
             previousPreviousPoint = touch.previousLocationInView(self)
             currentPoint = touch.locationInView(self)
@@ -120,10 +124,33 @@ class SmoothLineView: UIView {
             self.setNeedsDisplayInRect(drawBox)
         }
     }
-    func makeBlue() {
-        self.lineColor = UIColor.blueColor()
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, opaque, 0.0)
+        drawViewHierarchyInRect(self.bounds, afterScreenUpdates: false)
+        let snapshotImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        switch imageArray.count {
+        case 0, 1:
+            imageArray.append(snapshotImage)
+            UIGraphicsEndImageContext()
+        default:
+            let indexNumber = (imageArray.count - 1)
+            let previousSnapshotImage : UIImage = imageArray[indexNumber]
+            let blendedImage = addImage(snapshotImage, toImage: previousSnapshotImage)
+            imageArray.append(blendedImage)
+        }
+        print("Hello")
     }
 
 }
 
+func addImage(image: UIImage, toImage: UIImage) -> UIImage {
+    UIGraphicsBeginImageContext(image.size)
+    image.drawInRect(CGRectMake(0, 0, image.size.width, image.size.height))
+    image.drawInRect(CGRectMake(0, 0, image.size.width, image.size.height), blendMode: kCGBlendModeNormal, alpha: 0.0)
+    let newImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return newImage
+}
     

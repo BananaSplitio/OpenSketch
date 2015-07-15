@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var orangeColorButton: OrangeButton!
     @IBOutlet weak var purpleColorButton: PurpleButton!
     @IBOutlet weak var lineWidthSlider: UISlider!
-    
+    @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +37,7 @@ class ViewController: UIViewController {
         self.view.bringSubviewToFront(orangeColorButton)
         self.view.bringSubviewToFront(purpleColorButton)
         self.view.bringSubviewToFront(lineWidthSlider)
+        self.view.bringSubviewToFront(backButton)
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,9 +49,10 @@ class ViewController: UIViewController {
         mainDrawingCanvas.image = nil 
         smoothLineView.path = CGPathCreateMutable()
         if CGPathIsEmpty(smoothLineView.path) {
-            smoothLineView.backgroundColor = UIColor.whiteColor()
+//            smoothLineView.backgroundColor = UIColor.whiteColor()
             smoothLineView.backgroundColor = UIColor.clearColor()
         }
+        imageArray = []
     }
    
     @IBAction func blueColorStroke(sender: AnyObject) {
@@ -77,16 +79,40 @@ class ViewController: UIViewController {
         changeStrokeWidth(CGFloat(newValue))
     }
     
+    @IBAction func removeLastPath(sender: AnyObject) {
+        let indexNumber = (imageArray.count - 2)
+        if indexNumber >= 0 {
+        mainDrawingCanvas.image = imageArray[indexNumber]
+        imageArray.removeAtIndex(indexNumber)
+        smoothLineView.path = CGPathCreateMutable()
+        if CGPathIsEmpty(smoothLineView.path) {
+            smoothLineView.backgroundColor = UIColor.whiteColor()
+            smoothLineView.backgroundColor = UIColor.clearColor()
+            }
+        } else {
+            mainDrawingCanvas.image = nil
+            smoothLineView.path = CGPathCreateMutable()
+            if CGPathIsEmpty(smoothLineView.path) {
+                //            smoothLineView.backgroundColor = UIColor.whiteColor()
+                smoothLineView.backgroundColor = UIColor.clearColor()
+            }
+            imageArray = []
+        }
+        
+
+    }
+
     func changeStrokeColor(color: UIColor) {
     addViewToImageView()
     smoothLineView.lineColor = color
-    
     }
     
     func changeStrokeWidth(width: CGFloat) {
         smoothLineView.lineWidth = width
         addViewToImageView()
     }
+    
+    
     
     func addViewToImageView() {
         UIGraphicsBeginImageContextWithOptions(mainDrawingCanvas.bounds.size, view.opaque, 0.0)
