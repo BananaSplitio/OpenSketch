@@ -120,10 +120,6 @@ class SmoothLineView: UIView {
             self.setNeedsDisplayInRect(drawBox)
         }
     }
-    func makeBlue() {
-        self.lineColor = UIColor.blueColor()
-    }
-
 }
 
     
