@@ -11,6 +11,10 @@ import QuartzCore
 
     let defaultColor : UIColor = UIColor.blackColor()
     let defaultBackgroundColor : UIColor = UIColor.clearColor()
+    var lineColor : UIColor = UIColor.blackColor()
+    var lineWidth : CGFloat = 10.0
+    var lineOpacity : CGFloat = 0.7
+
     let defaultWidth : CGFloat = 10.0
 
     let kPointMinDistance : CGFloat = 5.0
@@ -22,12 +26,26 @@ import QuartzCore
 
 
 
+
 class SmoothLineView: UIView {
     
     var path : CGMutablePathRef
-    var lineColor : UIColor
-    var lineWidth : CGFloat
     var empty : Bool
+    var pathArray = [line]()
+    
+    struct line {
+        var structLineColor : UIColor
+        var structLineWidth : CGFloat
+        var structPath : CGMutablePathRef
+        var structOpacity : CGFloat
+        
+        init(newPath : CGMutablePathRef) {
+            structLineColor = lineColor
+            structLineWidth = lineWidth
+            structPath = newPath
+            structOpacity = lineOpacity
+        }
+    }
 
     
     func getMidPoint(p1 : CGPoint, p2 : CGPoint) -> CGPoint {
@@ -36,8 +54,6 @@ class SmoothLineView: UIView {
     
     required init(coder aDecoder: NSCoder) {
         self.path = CGPathCreateMutable()
-        self.lineWidth = defaultWidth
-        self.lineColor = defaultColor
         self.empty = true
         super.init(coder: aDecoder)
     }
@@ -45,8 +61,6 @@ class SmoothLineView: UIView {
     override init(frame: CGRect) {
         
         self.path = CGPathCreateMutable()
-        self.lineWidth = defaultWidth
-        self.lineColor = defaultColor
         self.empty = true
         super.init(frame: frame)
         self.backgroundColor = defaultBackgroundColor
@@ -58,11 +72,14 @@ class SmoothLineView: UIView {
         UIRectFill(rect)
         
         let context : CGContextRef = UIGraphicsGetCurrentContext()
-        CGContextAddPath(context, self.path)
+        for line in pathArray {
+            CGContextAddPath(context, line.structPath)
+            CGContextSetLineWidth(context, line.structLineWidth)
+            CGContextSetStrokeColorWithColor(context, line.structLineColor.CGColor)
+            CGContextSetAlpha(context, lineOpacity)
+
+        }
         CGContextSetLineCap(context, kCGLineCapRound)
-        CGContextSetLineWidth(context, self.lineWidth)
-        CGContextSetStrokeColorWithColor(context, self.lineColor.CGColor)
-        CGContextSetAlpha(context, 0.7)
         CGContextStrokePath(context)
         
         self.empty = false
@@ -79,21 +96,8 @@ class SmoothLineView: UIView {
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
+        
          if let touch = touches.first as UITouch! {
-            let point : CGPoint = touch.locationInView(self)
-            
-            // if the finger has moved less than the min dist ...
-            
-            let dx : CGFloat = point.x - currentPoint.x
-            let dy : CGFloat = point.y - currentPoint.y
-            
-            
-            if ((dx * dx + dy * dy) < kPointMinDistanceSquared) {
-                // ... then ignore this movement
-                return
-            }
-            
-            // update points: previousPrevious -> mid1 -> previous -> mid2 -> current
             
             previousPreviousPoint = previousPoint
             previousPoint = touch.previousLocationInView(self)
@@ -102,22 +106,17 @@ class SmoothLineView: UIView {
             let mid1 : CGPoint = getMidPoint(previousPoint, p2: previousPreviousPoint)
             let mid2 : CGPoint = getMidPoint(currentPoint, p2: previousPoint)
             
-            // to represent the finger movement, create a new path segment,
-            // a quadratic bezier path from mid1 to mid2, using previous as a control point
-            
             let subpath : CGMutablePathRef = CGPathCreateMutable()
             CGPathMoveToPoint(subpath, nil, mid1.x, mid1.y)
             CGPathAddQuadCurveToPoint(subpath, nil, previousPoint.x, previousPoint.y, mid2.x, mid2.y)
             
-            // compute the rect containing the new segment plus padding for drawn line
-            
             let bounds : CGRect = CGPathGetBoundingBox(subpath)
-            let drawBox : CGRect = CGRectInset(bounds, -2.0 * self.lineWidth, -2.0 * self.lineWidth)
-            
-            // append the quad curve to the accumulated path so far.
-            
-            CGPathAddPath(path, nil, subpath)
+            let drawBox : CGRect = CGRectInset(bounds, -2.0 * lineWidth, -2.0 * lineWidth)
+//
+            let newLine = line(newPath: subpath)
+            pathArray.append(newLine)
             self.setNeedsDisplayInRect(drawBox)
+            print("\(pathArray.count)")
         }
     }
 }

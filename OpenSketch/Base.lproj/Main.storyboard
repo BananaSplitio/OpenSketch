@@ -84,12 +84,22 @@
                                     <action selector="purpleColorButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YXe-ur-8mA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WEq-wS-3qk">
+                                <rect key="frame" x="964" y="50" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="agr-6K-mkt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="backButton" destination="WEq-wS-3qk" id="CXs-1W-x9b"/>
                         <outlet property="blueColorButton" destination="R27-i5-i1g" id="qU8-Uk-wuy"/>
                         <outlet property="deleteCurrentCanvasButton" destination="Kmr-6J-bAz" id="MT4-YQ-6kj"/>
                         <outlet property="greenColorButton" destination="iCl-um-FPb" id="gAH-46-wq0"/>
