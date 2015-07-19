@@ -12,6 +12,8 @@ import UIKit
 class ViewController: UIViewController {
     
     var smoothLineView : SmoothLineView = SmoothLineView()
+    
+    var imageArray = [UIImage]()
 
     
     @IBOutlet weak var mainDrawingCanvas: UIImageView!
@@ -47,8 +49,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func deleteCurrentCanvas(sender: AnyObject) {
-        mainDrawingCanvas.image = nil
-        smoothLineView.path = CGPathCreateMutable()
+        mainDrawingCanvas.image = imageArray[0]
         smoothLineView.pathArray = []
         if CGPathIsEmpty(smoothLineView.path) {
             smoothLineView.backgroundColor = UIColor.whiteColor()
@@ -112,6 +113,7 @@ class ViewController: UIViewController {
         UIGraphicsBeginImageContextWithOptions(mainDrawingCanvas.bounds.size, view.opaque, 0.0)
         view.drawViewHierarchyInRect(mainDrawingCanvas.bounds, afterScreenUpdates: false)
         let snapshotImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        imageArray.append(snapshotImage)
         UIGraphicsEndImageContext()
         mainDrawingCanvas.image = snapshotImage
         smoothLineView.pathArray = []
