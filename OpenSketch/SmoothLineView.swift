@@ -31,6 +31,8 @@ class SmoothLineView: UIView {
     
     var path : CGMutablePathRef
     var empty : Bool
+    var pointCount: Int = Int()
+    var pointArray = [Int]()
     var pathArray = [line]()
     
     struct line {
@@ -90,6 +92,7 @@ class SmoothLineView: UIView {
             previousPoint = touch.previousLocationInView(self)
             previousPreviousPoint = touch.previousLocationInView(self)
             currentPoint = touch.locationInView(self)
+            pointCount = 0
         }
         self.touchesMoved(touches, withEvent: event)
     }
@@ -112,12 +115,18 @@ class SmoothLineView: UIView {
             
             let bounds : CGRect = CGPathGetBoundingBox(subpath)
             let drawBox : CGRect = CGRectInset(bounds, -2.0 * lineWidth, -2.0 * lineWidth)
-//
             let newLine = line(newPath: subpath)
             pathArray.append(newLine)
             self.setNeedsDisplayInRect(drawBox)
             print("\(pathArray.count)")
+            pointCount++
+//            print("\(pointCount)")
         }
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        pointArray.append(pointCount)
+        print("\(pointArray)")
     }
 }
 

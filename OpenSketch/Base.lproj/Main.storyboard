@@ -68,7 +68,7 @@
                                     <action selector="redColorStroke:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6c5-so-lvm"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="20" id="6fY-CL-hZz">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="50" id="6fY-CL-hZz">
                                 <rect key="frame" x="8" y="554" width="118" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>

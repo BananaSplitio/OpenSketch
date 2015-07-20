@@ -58,8 +58,16 @@ class ViewController: UIViewController {
     
     @IBAction func backButton(sender: AnyObject) {
         smoothLineView.path = CGPathCreateMutable()
-        if smoothLineView.pathArray.count > 0 {
-            smoothLineView.pathArray.removeLast()}
+        if smoothLineView.pathArray.count > 0 || smoothLineView.pointArray.count > 0 {
+            for var index = 0; index < smoothLineView.pointArray.last; ++index {
+                if smoothLineView.pathArray.count > 0 {
+                    smoothLineView.pathArray.removeLast()
+                }
+            }
+            smoothLineView.pointArray.removeLast()
+        }
+        
+        
         smoothLineView.backgroundColor = UIColor.whiteColor()
         smoothLineView.backgroundColor = UIColor.clearColor()
 
@@ -67,31 +75,29 @@ class ViewController: UIViewController {
     
    
     @IBAction func blueColorStroke(sender: AnyObject) {
-//        addViewToImageView()
-        addViewToImageView()
-        lineColor = UIColor.blueColor()
-        
+        changeStrokeColor(UIColor.blueColor())
     }
+    
     @IBAction func redColorStroke(sender: AnyObject) {
-        addViewToImageView()
-        lineColor = UIColor.redColor()
+        changeStrokeColor(UIColor.redColor())
     }
+    
     @IBAction func greenColorStroke(sender: AnyObject) {
-        addViewToImageView()
-        lineColor = UIColor.greenColor()
+        changeStrokeColor(UIColor.greenColor())
     }
+    
     @IBAction func yellowColorStroke(sender: AnyObject) {
-        addViewToImageView()
-        lineColor = UIColor.yellowColor()
+        changeStrokeColor(UIColor.yellowColor())
     }
+    
     @IBAction func orangeColorStroke(sender: AnyObject) {
-        addViewToImageView()
-        lineColor = UIColor.orangeColor()
+        changeStrokeColor(UIColor.orangeColor())
     }
+    
     @IBAction func purpleColorButton(sender: AnyObject) {
-        addViewToImageView()
-        lineColor = UIColor.purpleColor()
+        changeStrokeColor(UIColor.purpleColor())
     }
+    
     @IBAction func valueDidChange(sender: AnyObject) {
         let newValue : Float = sender.value
         changeStrokeWidth(CGFloat(newValue))
@@ -99,12 +105,11 @@ class ViewController: UIViewController {
     
     func changeStrokeColor(color: UIColor) {
     addViewToImageView()
-//    smoothLineView.lineColor = color
-    
+    lineColor = color
     }
     
     func changeStrokeWidth(width: CGFloat) {
-//        smoothLineView.lineWidth = width
+        lineWidth = width
         addViewToImageView()
     }
     
@@ -120,8 +125,6 @@ class ViewController: UIViewController {
             smoothLineView.backgroundColor = UIColor.whiteColor()
             smoothLineView.backgroundColor = UIColor.clearColor()
         }
-
+        smoothLineView.pointArray = []
     }
-    
-    
 }
