@@ -37,7 +37,7 @@ class ColorPaletteButton: UIButton {
         // use to fill and stroke path (see http://stackoverflow.com/questions/13526046/cant-stroke-path-after-filling-it )
         
         // draw the path
-        CGContextDrawPath(context, kCGPathFillStroke);
+        CGContextDrawPath(context, CGPathDrawingMode.FillStroke);
     }
 
     

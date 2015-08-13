@@ -54,7 +54,7 @@ class SmoothLineView: UIView {
         return CGPointMake((p1.x + p2.x) * 0.5, (p1.y + p2.y) * 0.5);
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         self.path = CGPathCreateMutable()
         self.empty = true
         super.init(coder: aDecoder)
@@ -81,7 +81,7 @@ class SmoothLineView: UIView {
             CGContextSetAlpha(context, lineOpacity)
 
         }
-        CGContextSetLineCap(context, kCGLineCapRound)
+        CGContextSetLineCap(context, CGLineCap.Round)
         CGContextStrokePath(context)
         
         self.empty = false
