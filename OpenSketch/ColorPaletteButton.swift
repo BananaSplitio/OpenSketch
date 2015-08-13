@@ -15,28 +15,14 @@ class ColorPaletteButton: UIButton {
     override func drawRect(rect:CGRect)
         
     {
-        // obtain context
         let context = UIGraphicsGetCurrentContext()
-        
-        // decide on radius
         let rad = CGRectGetWidth(rect)/2-2
-        
         let endAngle = CGFloat(2*M_PI)
-        
-        // add the circle to the context
         CGContextAddArc(context, CGRectGetMidX(rect), CGRectGetMidY(rect), rad, 0, endAngle, 1)
-        
-        // set fill color
         CGContextSetFillColorWithColor(context,fillColor)
-        
-        // set stroke color
         CGContextSetStrokeColorWithColor(context,UIColor.blackColor().CGColor)
-        
-        // set line width
         CGContextSetLineWidth(context, 3.0)
-        // use to fill and stroke path (see http://stackoverflow.com/questions/13526046/cant-stroke-path-after-filling-it )
         
-        // draw the path
         CGContextDrawPath(context, CGPathDrawingMode.FillStroke);
     }
 

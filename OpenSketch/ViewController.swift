@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var mainDrawingCanvas: UIImageView!
     @IBOutlet weak var deleteCurrentCanvasButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var blueColorButton: BlueButton!
     @IBOutlet weak var redColorButton: RedButton!
     @IBOutlet weak var greenColorButton: GreenButton!
@@ -39,11 +40,12 @@ class ViewController: UIViewController {
         self.view.bringSubviewToFront(orangeColorButton)
         self.view.bringSubviewToFront(purpleColorButton)
         self.view.bringSubviewToFront(lineWidthSlider)
+        self.view.bringSubviewToFront(shareButton)
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func deleteCurrentCanvas(sender: AnyObject) {

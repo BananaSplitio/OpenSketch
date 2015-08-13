@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="15A216g" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="15A236d" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -23,11 +23,6 @@
                                     <action selector="deleteCurrentCanvas:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="M8O-8E-uSH"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="NBP-82-PH7">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OJW-oI-k0U" customClass="OrangeButton" customModule="OpenSketch" customModuleProvider="target">
                                 <rect key="frame" x="10" y="600" width="45" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -93,6 +88,20 @@
                                     <action selector="backButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="agr-6K-mkt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="V7I-rV-oZk">
+                                <rect key="frame" x="961" y="93" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <state key="normal" title="Share"/>
+                                <connections>
+                                    <segue destination="bVE-fB-ZU4" kind="modal" id="4MB-Xx-VGg"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="NBP-82-PH7">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -108,12 +117,29 @@
                         <outlet property="orangeColorButton" destination="OJW-oI-k0U" id="tRB-F6-QZm"/>
                         <outlet property="purpleColorButton" destination="x1M-zB-bBR" id="kQy-MS-g0O"/>
                         <outlet property="redColorButton" destination="c7R-Xa-6IY" id="fwt-9o-Lnz"/>
+                        <outlet property="shareButton" destination="V7I-rV-oZk" id="J3y-y5-qdu"/>
                         <outlet property="yellowColorButton" destination="VDv-yf-XLh" id="6gB-OS-01H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="486" y="817"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pNP-aY-wXY">
+            <objects>
+                <viewController id="bVE-fB-ZU4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="us3-nW-yD8">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.3411764706" green="0.85490196080000003" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YmG-ZX-KCj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1626" y="817"/>
         </scene>
     </scenes>
 </document>

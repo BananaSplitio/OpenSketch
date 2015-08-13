@@ -118,15 +118,12 @@ class SmoothLineView: UIView {
             let newLine = line(newPath: subpath)
             pathArray.append(newLine)
             self.setNeedsDisplayInRect(drawBox)
-            print("\(pathArray.count)")
             pointCount++
-//            print("\(pointCount)")
         }
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         pointArray.append(pointCount)
-        print("\(pointArray)")
     }
 }
 
