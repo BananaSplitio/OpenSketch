@@ -15,6 +15,7 @@
 		163551ED1B4B084C0026D330 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 163551EB1B4B084C0026D330 /* LaunchScreen.storyboard */; };
 		163551F81B4B084C0026D330 /* OpenSketchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163551F71B4B084C0026D330 /* OpenSketchTests.swift */; };
 		163552031B4B084C0026D330 /* OpenSketchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163552021B4B084C0026D330 /* OpenSketchUITests.swift */; };
+		168D0E3F1B7D4FB300DE1A36 /* LoginRadius.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D0E3E1B7D4FB300DE1A36 /* LoginRadius.framework */; };
 		16E0EA641B4B903500F078A8 /* SmoothLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0EA631B4B903500F078A8 /* SmoothLineView.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,8 @@
 		163551FE1B4B084C0026D330 /* OpenSketchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenSketchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		163552021B4B084C0026D330 /* OpenSketchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSketchUITests.swift; sourceTree = "<group>"; };
 		163552041B4B084C0026D330 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		168D0E3E1B7D4FB300DE1A36 /* LoginRadius.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoginRadius.framework; sourceTree = "<group>"; };
+		168D0E411B7D4FD200DE1A36 /* OpenSketch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenSketch-Bridging-Header.h"; sourceTree = "<group>"; };
 		16E0EA631B4B903500F078A8 /* SmoothLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothLineView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				168D0E3F1B7D4FB300DE1A36 /* LoginRadius.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +89,7 @@
 				163551F61B4B084C0026D330 /* OpenSketchTests */,
 				163552011B4B084C0026D330 /* OpenSketchUITests */,
 				163551E01B4B084C0026D330 /* Products */,
+				168D0E411B7D4FD200DE1A36 /* OpenSketch-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +106,7 @@
 		163551E11B4B084C0026D330 /* OpenSketch */ = {
 			isa = PBXGroup;
 			children = (
+				168D0E3E1B7D4FB300DE1A36 /* LoginRadius.framework */,
 				163551E21B4B084C0026D330 /* AppDelegate.swift */,
 				163551E41B4B084C0026D330 /* ViewController.swift */,
 				16E0EA631B4B903500F078A8 /* SmoothLineView.swift */,
@@ -193,6 +199,7 @@
 		163551D71B4B084C0026D330 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Cashew Studio";
 				TargetAttributes = {
@@ -407,8 +414,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenSketch",
+				);
 				INFOPLIST_FILE = OpenSketch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -416,6 +428,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos9.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenSketch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -423,8 +437,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenSketch",
+				);
 				INFOPLIST_FILE = OpenSketch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -432,6 +451,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos9.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenSketch-Bridging-Header.h";
 			};
 			name = Release;
 		};
