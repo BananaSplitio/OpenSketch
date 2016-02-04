@@ -41,7 +41,6 @@ class ViewController: UIViewController {
         self.view.bringSubviewToFront(purpleColorButton)
         self.view.bringSubviewToFront(lineWidthSlider)
         self.view.bringSubviewToFront(shareButton)
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,7 +54,6 @@ class ViewController: UIViewController {
     @IBAction func backButton(sender: AnyObject) {
         smoothLineView.removeLastPath()
     }
-    
    
     @IBAction func blueColorStroke(sender: AnyObject) {
         smoothLineView.changeLineColor(UIColor.blueColor())
@@ -86,7 +84,6 @@ class ViewController: UIViewController {
         smoothLineView.changeLineWidth(CGFloat(newValue))
     }
   
-    
     func changeStrokeWidth(width: CGFloat) {
         lineWidth = width
     }

@@ -144,8 +144,6 @@ class SmoothLineView: UIView {
     func changeLineWidth(width: CGFloat) {
         lineWidth = width
     }
-    
-    
 }
 
 
