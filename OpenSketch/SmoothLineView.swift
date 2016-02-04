@@ -15,7 +15,7 @@ import UIKit
 class SmoothLineView: UIView {
     
     var path : CGMutablePathRef
-    var empty : Bool
+    var defaultBackgroundColor : UIColor = UIColor.clearColor()
     var currentPoint: CGPoint = CGPoint()
     var previousPoint : CGPoint = CGPoint()
     var previousPreviousPoint : CGPoint = CGPoint()
@@ -40,13 +40,11 @@ class SmoothLineView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         self.path = CGPathCreateMutable()
-        self.empty = true
         super.init(coder: aDecoder)
     }
     
     override init(frame: CGRect) {
         self.path = CGPathCreateMutable()
-        self.empty = true
         super.init(frame: frame)
         self.backgroundColor = defaultBackgroundColor
 
@@ -64,7 +62,6 @@ class SmoothLineView: UIView {
             CGContextSetLineCap(context, CGLineCap.Round)
             CGContextStrokePath(context)
         }
-        self.empty = false
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
