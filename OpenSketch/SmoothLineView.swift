@@ -8,14 +8,9 @@
 
 import UIKit
 
-    let defaultColor : UIColor = UIColor.blackColor()
-    let defaultBackgroundColor : UIColor = UIColor.clearColor()
     var lineColor : UIColor = UIColor.blackColor()
     var lineWidth : CGFloat = 10.0
     var lineOpacity : CGFloat = 1.0
-
-    let defaultWidth : CGFloat = 10.0
-
 
 class SmoothLineView: UIView {
     
@@ -35,6 +30,7 @@ class SmoothLineView: UIView {
         var structOpacity : CGFloat
         
         init(newPath : CGMutablePathRef) {
+            
             structLineColor = lineColor
             structLineWidth = lineWidth
             structPath = newPath
