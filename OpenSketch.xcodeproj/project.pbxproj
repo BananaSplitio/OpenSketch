@@ -15,7 +15,6 @@
 		163551ED1B4B084C0026D330 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 163551EB1B4B084C0026D330 /* LaunchScreen.storyboard */; };
 		163551F81B4B084C0026D330 /* OpenSketchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163551F71B4B084C0026D330 /* OpenSketchTests.swift */; };
 		163552031B4B084C0026D330 /* OpenSketchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163552021B4B084C0026D330 /* OpenSketchUITests.swift */; };
-		168D0E5D1B7D512E00DE1A36 /* LoginRadius.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D0E5C1B7D512E00DE1A36 /* LoginRadius.framework */; };
 		16E0EA641B4B903500F078A8 /* SmoothLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0EA631B4B903500F078A8 /* SmoothLineView.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +51,6 @@
 		163552021B4B084C0026D330 /* OpenSketchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSketchUITests.swift; sourceTree = "<group>"; };
 		163552041B4B084C0026D330 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		168D0E411B7D4FD200DE1A36 /* OpenSketch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenSketch-Bridging-Header.h"; sourceTree = "<group>"; };
-		168D0E5C1B7D512E00DE1A36 /* LoginRadius.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoginRadius.framework; sourceTree = "<group>"; };
 		16E0EA631B4B903500F078A8 /* SmoothLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothLineView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,7 +59,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				168D0E5D1B7D512E00DE1A36 /* LoginRadius.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +82,6 @@
 		163551D61B4B084C0026D330 = {
 			isa = PBXGroup;
 			children = (
-				168D0E5C1B7D512E00DE1A36 /* LoginRadius.framework */,
 				163551E11B4B084C0026D330 /* OpenSketch */,
 				163551F61B4B084C0026D330 /* OpenSketchTests */,
 				163552011B4B084C0026D330 /* OpenSketchUITests */,
@@ -200,7 +196,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Cashew Studio";
 				TargetAttributes = {
 					163551DE1B4B084C0026D330 = {
@@ -428,7 +424,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.bananasplit.OpenSketch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos9.0;
+				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "OpenSketch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -452,7 +448,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.bananasplit.OpenSketch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos9.0;
+				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "OpenSketch-Bridging-Header.h";
 			};
 			name = Release;

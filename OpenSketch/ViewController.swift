@@ -63,9 +63,11 @@ class ViewController: UIViewController {
         if smoothLineView.pathArray.count > 0 || smoothLineView.pointArray.count > 0 {
             for var index = 0; index < smoothLineView.pointArray.last; ++index {
                 if smoothLineView.pathArray.count > 0 {
+                    print(smoothLineView.pathArray.count)
                     smoothLineView.pathArray.removeLast()
                 }
             }
+            print(smoothLineView.pathArray.count)
             smoothLineView.pointArray.removeLast()
         }
         
@@ -106,7 +108,6 @@ class ViewController: UIViewController {
     }
     
     func changeStrokeColor(color: UIColor) {
-    addViewToImageView()
     lineColor = color
     }
     
