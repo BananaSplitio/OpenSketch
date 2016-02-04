@@ -14,7 +14,6 @@ import UIKit
 
 class SmoothLineView: UIView {
     
-    var path : CGMutablePathRef
     var defaultBackgroundColor : UIColor = UIColor.clearColor()
     var currentPoint: CGPoint = CGPoint()
     var previousPoint : CGPoint = CGPoint()
@@ -39,12 +38,10 @@ class SmoothLineView: UIView {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.path = CGPathCreateMutable()
         super.init(coder: aDecoder)
     }
     
     override init(frame: CGRect) {
-        self.path = CGPathCreateMutable()
         super.init(frame: frame)
         self.backgroundColor = defaultBackgroundColor
 
@@ -121,6 +118,34 @@ class SmoothLineView: UIView {
         self.setNeedsDisplayInRect(drawBox)
         pointCount++
     }
+    
+    func removeLastPath() {
+        if pathArray.count > 0 || pointArray.count > 0 {
+            for var index = 0; index < pointArray.last; ++index {
+                if pathArray.count > 0 {
+                    pathArray.removeLast()
+                }
+            }
+            pointArray.removeLast()
+        }
+        setNeedsDisplay()
+    }
+    
+    func removeAllPaths() {
+        pathArray = []
+        pointArray = []
+        setNeedsDisplay()
+    }
+    
+    func changeLineColor(color: UIColor) {
+        lineColor = color
+    }
+    
+    func changeLineWidth(width: CGFloat) {
+        lineWidth = width
+    }
+    
+    
 }
 
 

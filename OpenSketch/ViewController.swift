@@ -49,85 +49,45 @@ class ViewController: UIViewController {
     }
     
     @IBAction func deleteCurrentCanvas(sender: AnyObject) {
-        mainDrawingCanvas.image = nil
-        smoothLineView.path = CGPathCreateMutable()
-        smoothLineView.pathArray = []
-        if CGPathIsEmpty(smoothLineView.path) {
-            smoothLineView.backgroundColor = UIColor.whiteColor()
-            smoothLineView.backgroundColor = UIColor.clearColor()
-        }
+        smoothLineView.removeAllPaths()
     }
     
     @IBAction func backButton(sender: AnyObject) {
-        smoothLineView.path = CGPathCreateMutable()
-        if smoothLineView.pathArray.count > 0 || smoothLineView.pointArray.count > 0 {
-            for var index = 0; index < smoothLineView.pointArray.last; ++index {
-                if smoothLineView.pathArray.count > 0 {
-                    print(smoothLineView.pathArray.count)
-                    smoothLineView.pathArray.removeLast()
-                }
-            }
-            print(smoothLineView.pathArray.count)
-            smoothLineView.pointArray.removeLast()
-        }
-        
-        
-        smoothLineView.backgroundColor = UIColor.whiteColor()
-        smoothLineView.backgroundColor = UIColor.clearColor()
-
+        smoothLineView.removeLastPath()
     }
     
    
     @IBAction func blueColorStroke(sender: AnyObject) {
-        changeStrokeColor(UIColor.blueColor())
+        smoothLineView.changeLineColor(UIColor.blueColor())
     }
     
     @IBAction func redColorStroke(sender: AnyObject) {
-        changeStrokeColor(UIColor.redColor())
+        smoothLineView.changeLineColor(UIColor.redColor())
     }
     
     @IBAction func greenColorStroke(sender: AnyObject) {
-        changeStrokeColor(UIColor.greenColor())
+        smoothLineView.changeLineColor(UIColor.greenColor())
     }
     
     @IBAction func yellowColorStroke(sender: AnyObject) {
-        changeStrokeColor(UIColor.yellowColor())
+        smoothLineView.changeLineColor(UIColor.yellowColor())
     }
     
     @IBAction func orangeColorStroke(sender: AnyObject) {
-        changeStrokeColor(UIColor.orangeColor())
+        smoothLineView.changeLineColor(UIColor.orangeColor())
     }
     
     @IBAction func purpleColorButton(sender: AnyObject) {
-        changeStrokeColor(UIColor.purpleColor())
+        smoothLineView.changeLineColor(UIColor.purpleColor())
     }
     
     @IBAction func valueDidChange(sender: AnyObject) {
         let newValue : Float = sender.value
-        changeStrokeWidth(CGFloat(newValue))
+        smoothLineView.changeLineWidth(CGFloat(newValue))
     }
-    
-    func changeStrokeColor(color: UIColor) {
-    lineColor = color
-    }
+  
     
     func changeStrokeWidth(width: CGFloat) {
         lineWidth = width
-        addViewToImageView()
-    }
-    
-    func addViewToImageView() {
-        UIGraphicsBeginImageContextWithOptions(mainDrawingCanvas.bounds.size, view.opaque, 0.0)
-        view.drawViewHierarchyInRect(mainDrawingCanvas.bounds, afterScreenUpdates: false)
-        let snapshotImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        mainDrawingCanvas.image = snapshotImage
-        smoothLineView.pathArray = []
-        smoothLineView.path = CGPathCreateMutable()
-        if CGPathIsEmpty(smoothLineView.path) {
-            smoothLineView.backgroundColor = UIColor.whiteColor()
-            smoothLineView.backgroundColor = UIColor.clearColor()
-        }
-        smoothLineView.pointArray = []
     }
 }
